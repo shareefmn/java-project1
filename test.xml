@@ -34,12 +34,12 @@
 
   <!--Creates the deployable jar file  -->
   <target name="test" depends="clean, makedir, compile">
-    <JUnit printsummary="yes" fork="true">
+    <junit printsummary="yes" fork="true">
       <classpath refid="class.path" />
       <test name="RectangleTest" todir="${report.dir}" outfile="result">
         <formatter type="xml" />
       </test>
-    </JUnit>
+    </junit>
   </target>
 
   <target name="main" depends="test">
