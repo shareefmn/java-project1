@@ -38,7 +38,7 @@
       <classpath refid="class.path" />
       <test name="RectangleTest" todir="${report.dir}" outfile="result">
         <formatter type="xml" />
-      </test />
+      </test>
     </JUnit>
   </target>
 
