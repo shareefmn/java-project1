@@ -2,8 +2,6 @@
 <project name="Rectangle-Test" default="main" basedir=".">
   <property environment="env"/>
 
-  <!-- Sets variables which can later be used. -->
-  <!-- The value of a property is accessed via ${} -->
   <property name="src.dir" location="src" />
   <property name="build.dir" location="bin" />
   <property name="report.dir" location="reports" />
@@ -13,26 +11,22 @@
     <pathelement location="${build.dir}" />
   </path>
 
-  <!-- Deletes the existing build, docs and dist directory-->
   <target name="clean">
     <delete dir="${build.dir}" />
     <delete dir="${report.dir}" />
   </target>
 
-  <!-- Creates the  build, docs and dist directory-->
   <target name="makedir" depends="clean">
     <mkdir dir="${build.dir}" />
     <mkdir dir="${report.dir}" />
   </target>
 
-  <!-- Compiles the java code (including the usage of library for JUnit -->
   <target name="compile" depends="makedir">
     <javac srcdir="${src.dir}" destdir="${build.dir}">
       <classpath refid="class.path" />
     </javac>
   </target>
 
-  <!--Creates the deployable jar file  -->
   <target name="test" depends="clean, makedir, compile">
     <junit printsummary="yes" fork="true">
       <classpath refid="class.path" />
