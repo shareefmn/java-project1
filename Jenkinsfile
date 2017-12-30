@@ -37,7 +37,7 @@ pipeline {
         sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/${env.BRANCH_NAME}/"
       }
     }
-    stage("Running on centOS") {
+    stage("Running on CentOS") {
       agent {
         label 'CentOS'
       }
@@ -60,7 +60,7 @@ pipeline {
         label 'apache'
       }
       when {
-        branch 'master'
+        branch 'development'
       }
       steps {
         sh "cp /var/www/html/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.BUILD_NUMBER}.jar"
@@ -74,9 +74,9 @@ pipeline {
         branch 'development'
       }
       steps {
-        echo "Stashing Any Local Changes"
+        echo 'Stashing Any Local Changes'
         sh 'git stash'
-        echo "checkout Development Branh"
+        echo 'checkout Development Branh'
         sh 'git checkout development'
         echo "checkout Master Branch"
         sh 'git checkout master'
