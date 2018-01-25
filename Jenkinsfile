@@ -78,7 +78,7 @@ pipeline {
         branch 'development'
       }
       steps {
-        echo 'Stashing Any Local Changes to original comments'
+        echo 'Stashing Any Local Changes to original code'
         sh 'git stash'
         echo 'checkout Development Branch'
         sh 'git checkout development'
